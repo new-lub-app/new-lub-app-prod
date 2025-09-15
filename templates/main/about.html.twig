@@ -1,8 +1,7 @@
-
 {% extends 'base.html.twig' %}
 
 {% block title %}A propos {% endblock %}
-{%  block stylesheets %}
+{% block stylesheets %}
     <style>
         /* Animation fade pour le carousel - Compatible avec votre thème New Lub */
         .carousel-fade {
@@ -243,7 +242,9 @@
                 <h1 class="display-3 text-white mb-3 animated slideInDown">A propos</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center text-uppercase">
-                        <li class="breadcrumb-item" style="color:   #FFD700 "><a href="{{ path('app_main') }}" style="color:   #FFD700 ">Accueil</a></li>
+                        <li class="breadcrumb-item" style="color:   #FFD700 "><a href="{{ path('app_main') }}"
+                                                                                 style="color:   #FFD700 ">Accueil</a>
+                        </li>
 
                         <li class="breadcrumb-item text-white active" aria-current="page">>A propos</li>
                     </ol>
@@ -263,8 +264,10 @@
                         <i class="fa fa-certificate fa-3x" style="color: var(--secondary); flex-shrink: 0;"></i>
                         <div class="ps-4">
                             <h5 class="mb-3" style="color: var(--dark); font-weight: 600;">Qualité Garantie</h5>
-                            <p class="text-muted" style="color: var(--dark);">Nous produisons des lubrifiants et graisses répondant aux normes les plus strictes pour vos véhicules.</p>
-                            <a href="#" class="text-secondary border-bottom" style="color: var(--secondary);">En savoir plus</a>
+                            <p class="text-muted" style="color: var(--dark);">Nous produisons des lubrifiants et
+                                graisses répondant aux normes les plus strictes pour vos véhicules.</p>
+                            <a href="#" class="text-secondary border-bottom" style="color: var(--secondary);">En savoir
+                                plus</a>
                         </div>
                     </div>
                 </div>
@@ -273,9 +276,11 @@
                         <i class="fa fa-users-cog fa-3x" style="color: var(--secondary); flex-shrink: 0;"></i>
                         <div class="ps-4">
                             <h5 class="mb-3" style="color: var(--dark); font-weight: 600;">Experts Dédiés</h5>
-                            <p class="text-muted" style="color: var(--dark);">Notre équipe d’experts en lubrifiants assure un accompagnement
+                            <p class="text-muted" style="color: var(--dark);">Notre équipe d’experts en lubrifiants
+                                assure un accompagnement
                                 technique pour chaque produit.</p>
-                            <a href="#" class="text-primary border-bottom" style="color: var(--primary);">En savoir plus</a>
+                            <a href="#" class="text-primary border-bottom" style="color: var(--primary);">En savoir
+                                plus</a>
                         </div>
                     </div>
                 </div>
@@ -284,8 +289,10 @@
                         <i class="fa fa-tools fa-3x" style="color: var(--secondary); flex-shrink: 0;"></i>
                         <div class="ps-4">
                             <h5 class="mb-3" style="color: var(--dark); font-weight: 600;">Équipements Modernes</h5>
-                            <p class="text-muted" style="color: var(--dark);">Nous utilisons des installations de pointe pour garantir des lubrifiants et graisses de haute performance.</p>
-                            <a href="#" class="text-secondary border-bottom" style="color: var(--secondary);">En savoir plus</a>
+                            <p class="text-muted" style="color: var(--dark);">Nous utilisons des installations de pointe
+                                pour garantir des lubrifiants et graisses de haute performance.</p>
+                            <a href="#" class="text-secondary border-bottom" style="color: var(--secondary);">En savoir
+                                plus</a>
                         </div>
                     </div>
                 </div>
@@ -296,58 +303,208 @@
 
 
     <!-- About Start -->
+    {#    <div class="container-xxl py-5"> #}
+    {#        <div class="container"> #}
+    {#            <div class="row g-5"> #}
+    {#                <div class="col-lg-6 pt-4" style="min-height: 400px;"> #}
+    {#                    <div class="position-relative h-100 wow fadeIn" data-wow-delay="0.1s"> #}
+    {#                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('img/about.jpg') }}" style="object-fit: cover; border-radius: 8px;" alt="Usine de fabrication New Lub"> #}
+    {#                        <div class="position-absolute top-0 end-0 mt-n4 me-n4 py-4 px-5" style="background: rgba(0, 0, 0, .15);"> #}
+    {#                            <h1 class="display-4 text-white mb-0" style="font-weight: 800;">15 <span class="fs-4" style="font-weight: 500;">Ans</span></h1> #}
+    {#                            <h4 class="text-white" style="font-weight: 600;">d'expérience</h4> #}
+    {#                        </div> #}
+    {#                    </div> #}
+    {#                </div> #}
+    {#                <div class="col-lg-6"> #}
+    {#                    <h6 class="text-uppercase mb-3" style="color: var(--secondary); font-weight: 600; letter-spacing: 1px;"> À propos de nous </h6> #}
+    {#                    <h1 class="mb-4"><span style="color: var(--secondary);">New Lub</span> : Votre partenaire pour les lubrifiants et graisses automobiles</h1> #}
+    {#                    <p class="mb-4" style="color: var(--dark); line-height: 1.7;">Nous fabriquons des lubrifiants et graisses de haute qualité pour véhicules, garantissant performance, durabilité et protection optimale. Notre expertise technique et notre engagement envers l’innovation font de nous un leader fiable sur le marché.</p> #}
+    {#                    <div class="row g-4 mb-3 pb-3"> #}
+    {#                        <div class="col-12 wow fadeIn" data-wow-delay="0.1s"> #}
+    {#                            <div class="d-flex"> #}
+    {#                                <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px; border-radius: 50%;"> #}
+    {#                                    <span class="fw-bold" style="color: var(--secondary);">01</span> #}
+    {#                                </div> #}
+    {#                                <div class="ps-3"> #}
+    {#                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Expertise Professionnelle</h6> #}
+    {#                                    <span style="color: var(--dark);">Une équipe qualifiée dédiée à la production et au conseil sur les lubrifiants automobiles.</span> #}
+    {#                                </div> #}
+    {#                            </div> #}
+    {#                        </div> #}
+    {#                        <div class="col-12 wow fadeIn" data-wow-delay="0.3s"> #}
+    {#                            <div class="d-flex"> #}
+    {#                                <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px; border-radius: 50%;"> #}
+    {#                                    <span class="fw-bold" style="color: var(--secondary);">02</span> #}
+    {#                                </div> #}
+    {#                                <div class="ps-3"> #}
+    {#                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Produits de Qualité Supérieure</h6> #}
+    {#                                    <span style="color: var(--dark);">Lubrifiants et graisses répondant aux normes internationales pour garantir performance et sécurité.</span> #}
+    {#                                </div> #}
+    {#                            </div> #}
+    {#                        </div> #}
+    {#                        <div class="col-12 wow fadeIn" data-wow-delay="0.5s"> #}
+    {#                            <div class="d-flex"> #}
+    {#                                <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px; border-radius: 50%;"> #}
+    {#                                    <span class="fw-bold" style="color: var(--secondary);">03</span> #}
+    {#                                </div> #}
+    {#                                <div class="ps-3"> #}
+    {#                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Innovation & Fiabilité</h6> #}
+    {#                                    <span style="color: var(--dark);">Nous utilisons des technologies modernes pour créer des lubrifiants durables et performants.</span> #}
+    {#                                </div> #}
+    {#                            </div> #}
+    {#                        </div> #}
+    {#                    </div> #}
+    {#                    <a href="#" class="btn btn-primary py-3 px-5" style="border-radius: 6px; font-weight: 600;">En savoir plus<i class="fa fa-arrow-right ms-3"></i></a> #}
+    {#                </div> #}
+    {#            </div> #}
+    {#        </div> #}
+    {#    </div> #}
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 pt-4" style="min-height: 400px;">
                     <div class="position-relative h-100 wow fadeIn" data-wow-delay="0.1s">
-                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('img/about.jpg') }}" style="object-fit: cover; border-radius: 8px;" alt="Usine de fabrication New Lub">
-                        <div class="position-absolute top-0 end-0 mt-n4 me-n4 py-4 px-5" style="background: rgba(0, 0, 0, .15);">
-                            <h1 class="display-4 text-white mb-0" style="font-weight: 800;">15 <span class="fs-4" style="font-weight: 500;">Ans</span></h1>
+                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('img/about.jpg') }}"
+                             style="object-fit: cover; border-radius: 8px;" alt="Usine de fabrication New Lub">
+                        <div class="position-absolute top-0 end-0 mt-n4 me-n4 py-4 px-5"
+                             style="background: rgba(0, 0, 0, .15);">
+                            <h1 class="display-4 text-white mb-0" style="font-weight: 800;">8 <span class="fs-4"
+                                                                                                    style="font-weight: 500;">Ans</span>
+                            </h1>
                             <h4 class="text-white" style="font-weight: 600;">d'expérience</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h6 class="text-uppercase mb-3" style="color: var(--secondary); font-weight: 600; letter-spacing: 1px;"> À propos de nous </h6>
-                    <h1 class="mb-4"><span style="color: var(--secondary);">New Lub</span> : Votre partenaire pour les lubrifiants et graisses automobiles</h1>
-                    <p class="mb-4" style="color: var(--dark); line-height: 1.7;">Nous fabriquons des lubrifiants et graisses de haute qualité pour véhicules, garantissant performance, durabilité et protection optimale. Notre expertise technique et notre engagement envers l’innovation font de nous un leader fiable sur le marché.</p>
+                    <h6 class="text-uppercase mb-3"
+                        style="color: var(--secondary); font-weight: 600; letter-spacing: 1px;"> À propos de nous </h6>
+                    <h1 class="mb-4"><span style="color: var(--secondary);">New Lub</span> : Votre partenaire pour les
+                        lubrifiants et graisses automobiles</h1>
+                    <p class="mb-4" style="color: var(--dark); line-height: 1.7;">
+                        New Lub a été fondée en 2017 par Ahmed Youssfi, Wissem Youssfi et Mohamed Youssfi avec une
+                        vision claire : offrir des solutions de lubrification et de maintenance automobile de haute
+                        qualité, conçues en Tunisie et inspirées par l’expertise allemande.
+
+                        Depuis notre création, nous avons construit une réputation solide sur le marché tunisien grâce à
+                        la qualité de nos produits et à la confiance de nos clients. Aujourd’hui, nous livrons partout
+                        en Tunisie et collaborons déjà avec plusieurs pays arabes. Notre ambition est de développer nos
+                        exportations et d’apporter la qualité New Lub à l’ensemble du continent africain et européenne.
+
+                        Nos produits
+
+                        Nous produisons et distribuons une large gamme de produits adaptés aux besoins des
+                        professionnels et des particuliers :
+
+
+                    </p>
                     <div class="row g-4 mb-3 pb-3">
                         <div class="col-12 wow fadeIn" data-wow-delay="0.1s">
                             <div class="d-flex">
-                                <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px; border-radius: 50%;">
+                                <div
+                                    class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1"
+                                    style="width: 45px; height: 45px; border-radius: 50%;">
                                     <span class="fw-bold" style="color: var(--secondary);">01</span>
                                 </div>
                                 <div class="ps-3">
-                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Expertise Professionnelle</h6>
-                                    <span style="color: var(--dark);">Une équipe qualifiée dédiée à la production et au conseil sur les lubrifiants automobiles.</span>
+                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Huiles moteur</h6>
+                                    {#                                    <span style="color: var(--dark);">Une équipe qualifiée dédiée à la production et au conseil sur les lubrifiants automobiles.</span> #}
                                 </div>
                             </div>
                         </div>
                         <div class="col-12 wow fadeIn" data-wow-delay="0.3s">
                             <div class="d-flex">
-                                <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px; border-radius: 50%;">
+                                <div
+                                    class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1"
+                                    style="width: 45px; height: 45px; border-radius: 50%;">
                                     <span class="fw-bold" style="color: var(--secondary);">02</span>
                                 </div>
                                 <div class="ps-3">
-                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Produits de Qualité Supérieure</h6>
-                                    <span style="color: var(--dark);">Lubrifiants et graisses répondant aux normes internationales pour garantir performance et sécurité.</span>
+                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Huiles de
+                                        transmission</h6>
+                                    {#                                    <span style="color: var(--dark);">Lubrifiants et graisses répondant aux normes internationales pour garantir performance et sécurité.</span> #}
                                 </div>
                             </div>
                         </div>
                         <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
                             <div class="d-flex">
-                                <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px; border-radius: 50%;">
+                                <div
+                                    class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1"
+                                    style="width: 45px; height: 45px; border-radius: 50%;">
                                     <span class="fw-bold" style="color: var(--secondary);">03</span>
                                 </div>
                                 <div class="ps-3">
-                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Innovation & Fiabilité</h6>
-                                    <span style="color: var(--dark);">Nous utilisons des technologies modernes pour créer des lubrifiants durables et performants.</span>
+                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Liquides de
+                                        freins</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="d-flex">
+                                <div
+                                    class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1"
+                                    style="width: 45px; height: 45px; border-radius: 50%;">
+                                    <span class="fw-bold" style="color: var(--secondary);">04</span>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Huiles
+                                        hydrauliques</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="d-flex">
+                                <div
+                                    class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1"
+                                    style="width: 45px; height: 45px; border-radius: 50%;">
+                                    <span class="fw-bold" style="color: var(--secondary);">05</span>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Liquides de
+                                        refroidissement (tous types)</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="d-flex">
+                                <div
+                                    class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1"
+                                    style="width: 45px; height: 45px; border-radius: 50%;">
+                                    <span class="fw-bold" style="color: var(--secondary);">06</span>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Eau distillée pour
+                                        batteries</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="d-flex">
+                                <div
+                                    class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1"
+                                    style="width: 45px; height: 45px; border-radius: 50%;">
+                                    <span class="fw-bold" style="color: var(--secondary);">06</span>
+                                </div>
+                                <div class="ps-3">
+                                    <h6 class="mb-1" style="color: var(--dark); font-weight: 600;">Eau pour
+                                        lave-glace</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="btn btn-primary py-3 px-5" style="border-radius: 6px; font-weight: 600;">En savoir plus<i class="fa fa-arrow-right ms-3"></i></a>
+                    <p class="mb-4" style="color: var(--dark); line-height: 1.7;">
+                        Graisse
+
+                        Notre engagement
+
+                        Tous nos produits sont 100 % fabriqués en Tunisie, selon des standards rigoureux, avec une
+                        expertise et une qualité d’inspiration allemande. Notre priorité est d’assurer performance,
+                        fiabilité et innovation afin de répondre aux attentes les plus exigeantes de nos clients.
+
+                        Avec New Lub, vous choisissez un partenaire de confiance pour accompagner la mobilité
+                        d’aujourd’hui et de demain.
+                    </p>
+                    <a href="#" class="btn btn-primary py-3 px-5" style="border-radius: 6px; font-weight: 600;">En
+                        savoir plus<i class="fa fa-arrow-right ms-3"></i></a>
                 </div>
             </div>
         </div>
@@ -361,23 +518,31 @@
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
                     <i class="fa fa-check fa-2x" style="color: var(--secondary); margin-bottom: 1rem;"></i>
-                    <h2 class="text-white mb-2" data-toggle="counter-up" style="font-weight: 800; font-size: 2.5rem;">1234</h2>
-                    <p class="text-white mb-0" style="font-weight: 500; color: rgba(255,255,255,0.8);">Années d'expérience</p>
+                    <h2 class="text-white mb-2" data-toggle="counter-up" style="font-weight: 800; font-size: 2.5rem;">
+                        1234</h2>
+                    <p class="text-white mb-0" style="font-weight: 500; color: rgba(255,255,255,0.8);">Années
+                        d'expérience</p>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
                     <i class="fa fa-users-cog fa-2x" style="color: var(--secondary); margin-bottom: 1rem;"></i>
-                    <h2 class="text-white mb-2" data-toggle="counter-up" style="font-weight: 800; font-size: 2.5rem;">1234</h2>
-                    <p class="text-white mb-0" style="font-weight: 500; color: rgba(255,255,255,0.8);">Techniciens experts</p>
+                    <h2 class="text-white mb-2" data-toggle="counter-up" style="font-weight: 800; font-size: 2.5rem;">
+                        1234</h2>
+                    <p class="text-white mb-0" style="font-weight: 500; color: rgba(255,255,255,0.8);">Techniciens
+                        experts</p>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
                     <i class="fa fa-users fa-2x" style="color: var(--secondary); margin-bottom: 1rem;"></i>
-                    <h2 class="text-white mb-2" data-toggle="counter-up" style="font-weight: 800; font-size: 2.5rem;">1234</h2>
-                    <p class="text-white mb-0" style="font-weight: 500; color: rgba(255,255,255,0.8);">Clients satisfaits</p>
+                    <h2 class="text-white mb-2" data-toggle="counter-up" style="font-weight: 800; font-size: 2.5rem;">
+                        1234</h2>
+                    <p class="text-white mb-0" style="font-weight: 500; color: rgba(255,255,255,0.8);">Clients
+                        satisfaits</p>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
                     <i class="fa fa-car fa-2x" style="color: var(--secondary); margin-bottom: 1rem;"></i>
-                    <h2 class="text-white mb-2" data-toggle="counter-up" style="font-weight: 800; font-size: 2.5rem;">1234</h2>
-                    <p class="text-white mb-0" style="font-weight: 500; color: rgba(255,255,255,0.8);">Projets réalisés</p>
+                    <h2 class="text-white mb-2" data-toggle="counter-up" style="font-weight: 800; font-size: 2.5rem;">
+                        1234</h2>
+                    <p class="text-white mb-0" style="font-weight: 500; color: rgba(255,255,255,0.8);">Projets
+                        réalisés</p>
                 </div>
             </div>
         </div>
@@ -394,23 +559,34 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                {#                <h6 class="text-uppercase mb-3" style="color: var(--secondary); font-weight: 600; letter-spacing: 1px;"> Nos Techniciens </h6>#}
+                {#                <h6 class="text-uppercase mb-3" style="color: var(--secondary); font-weight: 600; letter-spacing: 1px;"> Nos Techniciens </h6> #}
                 <h1 class="mb-5" style="color: var(--dark); font-weight: 700;">Nos Experts Techniques</h1>
             </div>
-            <div class="row g-4 justify-content-center" >
+            <div class="row g-4 justify-content-center">
                 <!-- Chaque colonne -->
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item d-flex flex-column h-100"> <!-- Ajouté : d-flex flex-column h-100 -->
-                        <div class="position-relative overflow-hidden flex-grow-1"> <!-- flex-grow-1 pour prendre tout l'espace disponible -->
-                            <img class="img-fluid" src="{{ asset('img/team-2.jpg') }}" alt="Technicien expert" style="border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
-                            <div class="team-overlay position-absolute start-0 top-0 w-100 h-100 bg-primary d-flex align-items-center justify-content-center" style="opacity: 0; transition: opacity 0.4s ease;">
-                                <a class="btn btn-square mx-1" href="" style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square mx-1" href="" style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square mx-1" href="" style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i class="fab fa-instagram"></i></a>
+                        <div class="position-relative overflow-hidden flex-grow-1">
+                            <!-- flex-grow-1 pour prendre tout l'espace disponible -->
+                            <img class="img-fluid" src="{{ asset('img/team-2.jpg') }}" alt="Technicien expert"
+                                 style="border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+                            <div
+                                class="team-overlay position-absolute start-0 top-0 w-100 h-100 bg-primary d-flex align-items-center justify-content-center"
+                                style="opacity: 0; transition: opacity 0.4s ease;">
+                                <a class="btn btn-square mx-1" href=""
+                                   style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square mx-1" href=""
+                                   style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square mx-1" href=""
+                                   style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
 
-                        <div class="bg-light text-center p-4" style="border-radius: 0 0 8px 8px; border-top: 1px solid #eee;">
+                        <div class="bg-light text-center p-4"
+                             style="border-radius: 0 0 8px 8px; border-top: 1px solid #eee;">
                             <h5 class="fw-bold mb-0" style="color: var(--dark);">Ahmed Youssfi</h5>
                             <small style="color: var(--secondary); font-weight: 500;">Sales Manager</small>
                         </div>
@@ -421,14 +597,24 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item d-flex flex-column h-100">
                         <div class="position-relative overflow-hidden flex-grow-1">
-                            <img class="img-fluid" src="{{ asset('img/team-3.jpg') }}" alt="Technicien expert" style="border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
-                            <div class="team-overlay position-absolute start-0 top-0 w-100 h-100 bg-primary d-flex align-items-center justify-content-center" style="opacity: 0; transition: opacity 0.4s ease;">
-                                <a class="btn btn-square mx-1" href="" style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square mx-1" href="" style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square mx-1" href="" style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i class="fab fa-instagram"></i></a>
+                            <img class="img-fluid" src="{{ asset('img/team-3.jpg') }}" alt="Technicien expert"
+                                 style="border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+                            <div
+                                class="team-overlay position-absolute start-0 top-0 w-100 h-100 bg-primary d-flex align-items-center justify-content-center"
+                                style="opacity: 0; transition: opacity 0.4s ease;">
+                                <a class="btn btn-square mx-1" href=""
+                                   style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square mx-1" href=""
+                                   style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square mx-1" href=""
+                                   style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
-                        <div class="bg-light text-center p-4" style="border-radius: 0 0 8px 8px; border-top: 1px solid #eee;">
+                        <div class="bg-light text-center p-4"
+                             style="border-radius: 0 0 8px 8px; border-top: 1px solid #eee;">
                             <h5 class="fw-bold mb-0" style="color: var(--dark);">Nom du Technicien</h5>
                             <small style="color: var(--secondary); font-weight: 500;">Ingénieur industriel</small>
                         </div>
@@ -438,14 +624,24 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item d-flex flex-column h-100">
                         <div class="position-relative overflow-hidden flex-grow-1">
-                            <img class="img-fluid" src="{{ asset('img/team-4.jpg') }}" alt="Technicien expert" style="border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
-                            <div class="team-overlay position-absolute start-0 top-0 w-100 h-100 bg-primary d-flex align-items-center justify-content-center" style="opacity: 0; transition: opacity 0.4s ease;">
-                                <a class="btn btn-square mx-1" href="" style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square mx-1" href="" style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square mx-1" href="" style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i class="fab fa-instagram"></i></a>
+                            <img class="img-fluid" src="{{ asset('img/team-4.jpg') }}" alt="Technicien expert"
+                                 style="border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+                            <div
+                                class="team-overlay position-absolute start-0 top-0 w-100 h-100 bg-primary d-flex align-items-center justify-content-center"
+                                style="opacity: 0; transition: opacity 0.4s ease;">
+                                <a class="btn btn-square mx-1" href=""
+                                   style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square mx-1" href=""
+                                   style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square mx-1" href=""
+                                   style="background-color: var(--secondary); color: var(--dark); width: 40px; height: 40px;"><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
-                        <div class="bg-light text-center p-4" style="border-radius: 0 0 8px 8px; border-top: 1px solid #eee;">
+                        <div class="bg-light text-center p-4"
+                             style="border-radius: 0 0 8px 8px; border-top: 1px solid #eee;">
                             <h5 class="fw-bold mb-0" style="color: var(--dark);">Nom du Technicien</h5>
                             <small style="color: var(--secondary); font-weight: 500;">Consultant technique</small>
                         </div>
@@ -464,7 +660,7 @@
         // À ajouter avant la fermeture du </body>
         // ========================================
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
 
             // 1. ANIMATION AU SCROLL - Observer
             const observerOptions = {
@@ -472,7 +668,7 @@
                 rootMargin: '0px 0px -50px 0px'
             };
 
-            const observer = new IntersectionObserver(function(entries) {
+            const observer = new IntersectionObserver(function (entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
@@ -506,7 +702,7 @@
             function handleNavbarScroll() {
                 const navbar = document.querySelector('.navbar-light');
                 if (navbar) {
-                    window.addEventListener('scroll', function() {
+                    window.addEventListener('scroll', function () {
                         if (window.scrollY > 50) {
                             navbar.classList.add('scrolled');
                         } else {
@@ -536,7 +732,7 @@
                     };
 
                     // Observer pour déclencher l'animation
-                    const counterObserver = new IntersectionObserver(function(entries) {
+                    const counterObserver = new IntersectionObserver(function (entries) {
                         entries.forEach(entry => {
                             if (entry.isIntersecting) {
                                 updateCounter();
@@ -550,17 +746,16 @@
             }
 
 
-
             // 5. ANIMATION DES FORMULAIRES
             function enhanceFormAnimations() {
                 const formInputs = document.querySelectorAll('.booking form .form-control');
 
                 formInputs.forEach(input => {
-                    input.addEventListener('focus', function() {
+                    input.addEventListener('focus', function () {
                         this.parentElement.classList.add('focused');
                     });
 
-                    input.addEventListener('blur', function() {
+                    input.addEventListener('blur', function () {
                         if (!this.value) {
                             this.parentElement.classList.remove('focused');
                         }
@@ -573,7 +768,7 @@
                 const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
 
                 buttons.forEach(button => {
-                    button.addEventListener('click', function(e) {
+                    button.addEventListener('click', function (e) {
                         // Créer l'effet ripple
                         const ripple = document.createElement('span');
                         const rect = this.getBoundingClientRect();
@@ -608,7 +803,7 @@
                 const tabButtons = document.querySelectorAll('.service .nav .nav-link');
 
                 tabButtons.forEach(button => {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         // Supprimer l'indicateur des autres onglets
                         tabButtons.forEach(btn => btn.classList.remove('tab-indicator'));
                         // Ajouter l'indicateur au bouton actif
@@ -620,7 +815,7 @@
             // 8. SMOOTH SCROLL POUR LES LIENS D'ANCRE
             function enableSmoothScroll() {
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function(e) {
+                    anchor.addEventListener('click', function (e) {
                         e.preventDefault();
                         const target = document.querySelector(this.getAttribute('href'));
                         if (target) {
