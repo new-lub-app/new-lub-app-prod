@@ -1,0 +1,14 @@
+twig:
+    file_name_pattern: '*.twig'
+    globals:
+        address: '%env(ADDRESS)%'
+        contact_number: '%env(CONTACT_NUMBER)%'
+        facebook_link: '%env(FACEBOOK_LINK)%'
+        insta_link: '%env(INSTA_LINK)%'
+        email_contact: '%env(EMAIL_CONTACT)%'
+
+
+when@test:
+    twig:
+        strict_variables: true
+

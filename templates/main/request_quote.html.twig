@@ -1,0 +1,559 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande de Devis - New Lub{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        /* Styles pour la page de devis */
+        .quote-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        /* Panier de produits */
+        .cart-summary {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .cart-title {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .cart-item-category {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .cart-item-price {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .cart-item-remove {
+            color: #dc3545;
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cart-item-remove:hover {
+            transform: scale(1.2);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            margin-top: 15px;
+            border-top: 2px solid #eee;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+        .cart-empty i {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        /* Formulaire de devis */
+        .quote-form {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-title {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-note {
+            font-size: 13px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-submit:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Étapes du processus */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #eee;
+            z-index: 1;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #777;
+            margin: 0 auto 10px;
+            transition: all 0.3s;
+        }
+
+        .process-step.active .step-number {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .process-step.completed .step-number {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: var(--dark);
+        }
+
+        .step-label {
+            font-size: 14px;
+            color: #777;
+            font-weight: 500;
+        }
+
+        .process-step.active .step-label,
+        .process-step.completed .step-label {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .process-steps {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .process-step {
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+
+            .step-number {
+                margin: 0 15px 0 0;
+            }
+
+            .cart-item {
+                flex-wrap: wrap;
+            }
+
+            .cart-item-image {
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Messages d'alerte */
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid;
+        }
+
+        .alert-success {
+            background: #f0f9f0;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .alert-error {
+            background: #fdf3f3;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        /* Animation de chargement */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url({{ asset('img/carousel-bg-1.jpg') }});">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Demande de Devis</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item" style="color: #FFD700"><a href="{{ path('app_main') }}" style="color: #FFD700">Accueil</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Demande de Devis</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Quote Section Start -->
+    <div class="container-xxl py-5 quote-section">
+        <div class="container">
+            <!-- Étapes du processus -->
+            <div class="process-steps">
+                <div class="process-step completed">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Sélection des produits</div>
+                </div>
+                <div class="process-step active">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Informations personnelles</div>
+                </div>
+{#                <div class="process-step">#}
+{#                    <div class="step-number">3</div>#}
+{#                    <div class="step-label">Confirmation</div>#}
+{#                </div>#}
+            </div>
+
+            <div class="row">
+                <!-- Résumé du panier -->
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="cart-summary">
+                        <h3 class="cart-title">Votre sélection</h3>
+
+                        <div id="cart-items">
+                            <!-- Produit 1 -->
+                            <div class="cart-item">
+                                <div class="cart-item-image">
+                                    <img src="{{ asset('img/products/'~product.imageName) }}" alt="Huile Synthétique 5W-30">
+                                </div>
+                                <div class="cart-item-details">
+                                    <div class="cart-item-name">{{product.name}}</div>
+                                    <div class="cart-item-category">{{ product.description }}</div>
+                                    <div class="cart-item-price">{{ product.price}} {{ product.devis }}</div>
+                                </div>
+                                <button class="cart-item-remove">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </div>
+
+
+                        </div>
+
+                        <div class="cart-total">
+                            <span>Total:</span>
+                            <span id="cart-total">{{ product.price}} {{ product.devis }}</span>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <i class="fa fa-info-circle me-2"></i>
+                        Votre devis sera traité dans les 24 heures. Un conseiller vous contactera pour finaliser votre commande.
+                    </div>
+                </div>
+
+                <!-- Formulaire de devis -->
+                <div class="col-lg-7">
+                    <div class="quote-form">
+                        <h3 class="form-title">Vos informations</h3>
+
+                        <form id="quote-form" action="{{ path('app_request_quote',{id:product.id}) }}" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="firstname">Prénom *</label>
+                                        <input type="text" id="firstname" name="firstname" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="lastname">Nom *</label>
+                                        <input type="text" id="lastname" name="lastname" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email *</label>
+                                        <input type="email" id="email" name="email" class="form-control" required>
+                                        <div class="form-note">Nous vous enverrons une copie de votre devis</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="phoneNumber">Téléphone *</label>
+                                        <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="message">Message</label>
+                                <textarea id="message" name="message" class="form-control" placeholder="Précisez vos besoins, quantités ou toute information utile..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" id="terms" name="terms" class="form-check-input" required>
+                                    <label class="form-check-label" for="terms">
+                                        J'accepte les <a href="#" style="color: var(--primary);">conditions générales</a> et la <a href="#" style="color: var(--primary);">politique de confidentialité</a> *
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-submit">
+                                <span id="submit-text">Envoyer la demande</span>
+                                <span id="submit-loading" class="loading-spinner" style="display: none;"></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quote Section End -->
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{#<script>#}
+{#    document.addEventListener('DOMContentLoaded', function() {#}
+{#        const quoteForm = document.getElementById('quote-form');#}
+{#        const submitText = document.getElementById('submit-text');#}
+{#        const submitLoading = document.getElementById('submit-loading');#}
+{#        const cartItems = document.getElementById('cart-items');#}
+{#        const cartTotal = document.getElementById('cart-total');#}
+
+{#        // Gestion de la soumission du formulaire#}
+{#        quoteForm.addEventListener('submit', function(e) {#}
+{#            e.preventDefault();#}
+
+{#            // Validation basique#}
+{#            const requiredFields = quoteForm.querySelectorAll('[required]');#}
+{#            let valid = true;#}
+
+{#            requiredFields.forEach(field => {#}
+{#                if (!field.value.trim()) {#}
+{#                    valid = false;#}
+{#                    field.style.borderColor = '#dc3545';#}
+{#                } else {#}
+{#                    field.style.borderColor = '#ddd';#}
+{#                }#}
+{#            });#}
+
+{#            if (!valid) {#}
+{#                showAlert('Veuillez remplir tous les champs obligatoires.', 'error');#}
+{#                return;#}
+{#            }#}
+
+{#            // Simulation d'envoi#}
+{#            submitText.style.display = 'none';#}
+{#            submitLoading.style.display = 'inline-block';#}
+
+{#            // Simuler un délai d'envoi#}
+{#            setTimeout(function() {#}
+{#                // Ici, vous enverriez normalement les données au serveur#}
+{#                console.log('Données du formulaire:', {#}
+{#                    firstname: document.getElementById('firstname').value,#}
+{#                    lastname: document.getElementById('lastname').value,#}
+{#                    email: document.getElementById('email').value,#}
+{#                    phoneNumber: document.getElementById('phoneNumber').value,#}
+{#                    message: document.getElementById('message').value,#}
+{#                    products: getCartProducts() // Fonction à implémenter pour récupérer les produits#}
+{#                });#}
+
+{#                showAlert('Votre demande de devis a été envoyée avec succès! Nous vous contacterons rapidement.', 'success');#}
+
+{#                // Réinitialiser le formulaire après succès#}
+{#                quoteForm.reset();#}
+
+{#                submitText.style.display = 'inline';#}
+{#                submitLoading.style.display = 'none';#}
+
+{#                // Redirection simulée (dans la réalité, vous redirigeriez vers une page de confirmation)#}
+{#                // window.location.href = "{{ path('app_quote_confirmation') }}";#}
+
+{#            }, 2000);#}
+{#        });#}
+
+{#        // Gestion de la suppression d'articles du panier#}
+{#        const removeButtons = document.querySelectorAll('.cart-item-remove');#}
+{#        removeButtons.forEach(button => {#}
+{#            button.addEventListener('click', function() {#}
+{#                const cartItem = this.closest('.cart-item');#}
+{#                cartItem.style.opacity = '0';#}
+
+{#                setTimeout(function() {#}
+{#                    cartItem.remove();#}
+{#                    updateCartTotal();#}
+
+{#                    // Si plus d'articles, afficher message panier vide#}
+{#                    if (document.querySelectorAll('.cart-item').length === 0) {#}
+{#                        showEmptyCart();#}
+{#                    }#}
+{#                }, 300);#}
+{#            });#}
+{#        });#}
+
+{#    // Fonction pour #}
+
+{% endblock %}

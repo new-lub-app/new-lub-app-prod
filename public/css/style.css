@@ -1,0 +1,1104 @@
+/********** Template CSS **********/
+/* === Variables CSS === */
+:root {
+    --primary: #0056B3;        /* Bleu profond */
+    --secondary: #FFD700;      /* Jaune doré */
+    --light: #F8F9FA;
+    --dark: #111111;
+    --accent: #FFFFFF;
+    --wave-color: #FFD700;
+}
+
+/* ===== LOGO NEW LUB - À ajouter à votre style.css ===== */ /* Style du logo SVG */ .navbar-brand svg { transition: all 0.3s ease; } .navbar-brand:hover svg { transform: scale(1.05); } /* Mise à jour de votre classe .newlub-logo existante */ .newlub-logo { display: flex; flex-direction: column; line-height: 0.9; margin-left: 8px; } .newlub-logo .new { font-size: 1.4rem; font-weight: 800; color: var(--primary); /* Utilise votre bleu #0056B3 */ letter-spacing: -0.5px; text-transform: uppercase; font-family: 'Arial', sans-serif; } .newlub-logo .lub { font-size: 1.6rem; font-weight: 900; color: var(--secondary); /* Utilise votre jaune #FFD700 */ letter-spacing: -0.3px; text-transform: uppercase; font-family: 'Arial', sans-serif; margin-top: -2px; }
+
+.fw-medium {
+    font-weight: 600 !important;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+    color: var(--secondary);
+}
+/* Effet au survol de la souris */
+.btn.btn-primary:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: white;
+
+    /* Amélioration 1: Élévation du bouton */
+    transform: translateY(-2px);
+
+    /* Amélioration 2: Ombre portée */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    /* Amélioration 3: Légère mise à l'échelle */
+    transform: translateY(-2px) scale(1.05);
+}
+    /*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+/*** Button ***/
+.btn {
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: .5s;
+}
+
+.btn.btn-primary,
+.btn.btn-secondary {
+    color: #FFFFFF;
+}
+
+.btn.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn.btn-secondary {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--dark);
+}
+
+.btn.btn-secondary:hover {
+    background-color: #e6b800;
+    border-color: #e6b800;
+    transform: scale(1.05);
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 2px;
+}
+
+/*** Navbar ***/
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    margin-right: 30px;
+    padding: 25px 0;
+    color: var(--dark);
+    font-size: 15px;
+    text-transform: uppercase;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--secondary);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-light .navbar-nav .nav-link {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+
+    .navbar-light .navbar-nav {
+        border-top: 1px solid #EEEEEE;
+    }
+}
+
+.navbar-light .navbar-brand,
+.navbar-light a.btn {
+    height: 75px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-light.sticky-top {
+    top: -100px;
+    transition: .5s;
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+        background-color: var(--dark);
+        border-radius: 4px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .navbar .nav-item .dropdown-menu .dropdown-item {
+        color: var(--light);
+        padding: 10px 20px;
+        transition: background-color 0.3s;
+    }
+
+    .navbar .nav-item .dropdown-menu .dropdown-item:hover {
+        background-color: var(--secondary);
+        color: var(--dark);
+    }
+}
+
+/*** Header ***/
+.carousel-caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .7);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.carousel-caption h1 {
+    color: var(--light);
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.carousel-caption p {
+    color: var(--light);
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+    background-size: cover;
+}
+
+@media (max-width: 768px) {
+    #header-carousel .carousel-item {
+        position: relative;
+        min-height: 450px;
+    }
+
+    #header-carousel .carousel-item img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.page-header {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page-header-inner {
+    background: rgba(0, 0, 0, .7);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--secondary);
+}
+
+/*** Facts ***/
+.fact {
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/carousel-bg-1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--light);
+    padding: 100px 0;
+}
+
+.fact h2 {
+    color: var(--secondary);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.fact p {
+    color: var(--light);
+    font-size: 1.1rem;
+}
+
+/*** Service ***/
+.service .nav .nav-link {
+    background: var(--light);
+    transition: .5s;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    color: var(--dark);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.service .nav .nav-link:hover {
+    background-color: var(--secondary);
+    color: var(--dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service .nav .nav-link.active {
+    background: var(--secondary);
+    color: var(--dark);
+    border-color: var(--secondary);
+}
+
+.service .nav .nav-link.active h4 {
+    color: var(--dark) !important;
+}
+
+.service .tab-content {
+    padding: 30px;
+    background: var(--light);
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+/*** Booking ***/
+.booking {
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/carousel-bg-2.jpg) center center no-repeat;
+    background-size: cover;
+    color: var(--light);
+    padding: 100px 0;
+}
+
+.booking h2 {
+    color: var(--secondary);
+    margin-bottom: 30px;
+}
+
+.booking form .form-control {
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+.booking form .btn {
+    background: var(--secondary);
+    color: var(--dark);
+    border: none;
+    padding: 15px 30px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.booking form .btn:hover {
+    background: #e6b800;
+}
+
+.bootstrap-datetimepicker-widget.bottom {
+    top: auto !important;
+}
+
+.bootstrap-datetimepicker-widget .table * {
+    border-bottom-width: 0px;
+}
+
+.bootstrap-datetimepicker-widget .table th {
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+    padding: 10px;
+    border-radius: 2px;
+    border: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+    background: var(--secondary);
+    color: var(--dark);
+}
+
+.bootstrap-datetimepicker-widget table td.today::before {
+    border-bottom-color: var(--secondary);
+}
+
+/*** Team ***/
+.team-item .team-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary);
+    transform: scale(0);
+    transition: .5s;
+}
+
+.team-item:hover .team-overlay {
+    transform: scale(1);
+}
+
+.team-item .team-overlay .btn {
+    color: var(--dark);
+    background: #FFFFFF;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-item .team-overlay .btn:hover {
+    color: #FFFFFF;
+    background: var(--primary);
+}
+
+/*** Testimonial ***/
+.testimonial-carousel .owl-item .testimonial-text,
+.testimonial-carousel .owl-item.center .testimonial-text * {
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-text {
+    background: var(--secondary) !important;
+    color: var(--dark) !important;
+    border-radius: 8px;
+    padding: 30px;
+    margin: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.testimonial-carousel .owl-item.center .testimonial-text * {
+    color: var(--dark) !important;
+}
+
+.testimonial-carousel .owl-dots {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--light);
+    background: transparent;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+/*** Footer ***/
+.footer {
+    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../img/carousel-bg-1.jpg) center center no-repeat;
+    background-size: cover;
+    color: var(--light);
+    padding: 80px 0 30px;
+}
+
+.footer .btn.btn-social {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    border: 1px solid var(--light);
+    border-radius: 50%;
+    transition: .3s;
+    background: transparent;
+}
+
+.footer .btn.btn-social:hover {
+    color: var(--dark);
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: var(--light);
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+    position: relative;
+    padding-left: 25px;
+}
+
+.footer .btn.btn-link::before {
+    position: absolute;
+    left: 0;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: var(--secondary);
+}
+
+.footer .btn.btn-link:hover {
+    letter-spacing: 1px;
+    color: var(--secondary);
+    transform: translateX(5px);
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    text-align: center;
+}
+
+.footer .copyright a {
+    color: var(--light);
+    text-decoration: underline;
+}
+
+.footer .footer-menu a {
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid rgba(255, 255, 255, .3);
+    color: var(--light);
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.footer .footer-menu a:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+}
+
+/*** Logo (optionnel) ***/
+.logo {
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+
+/* --- Navbar Adaptée à LUXOL --- */
+
+/* Logo : Rouge pour le texte, Jaune pour l'icône */
+.navbar-brand h2 {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.navbar-brand i.fa-car {
+    color: var(--secondary);
+}
+
+/* Bouton "Get A Quote" — maintenant en JAUNE */
+.btn-secondary {
+    background-color: var(--secondary) !important;
+    color: var(--dark) !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #e6b800 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Barre d'infos en haut — icônes jaunes, texte gris foncé */
+.bg-light {
+    background-color: var(--light) !important;
+}
+
+/* Icônes de la barre d'infos */
+.fa-map-marker-alt,
+.fa-clock,
+.fa-phone-alt {
+    color: var(--secondary) !important;
+    font-size: 0.9rem;
+}
+
+/* Texte de la barre d'infos */
+.bg-light small {
+    color: var(--dark) !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Boutons sociaux — fond blanc, bordure jaune, icône jaune */
+.btn-sm-square {
+    background-color: var(--light) !important;
+    color: var(--secondary) !important;
+    border: 1px solid var(--secondary) !important;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% !important;
+    transition: all 0.3s ease;
+}
+
+.btn-sm-square:hover {
+    background-color: var(--secondary) !important;
+    color: var(--dark) !important;
+    transform: scale(1.1);
+}
+
+/* --- Logo NEWLUB stylisé --- */
+.newlub-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.newlub-logo .new {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+}
+
+.newlub-logo .lub {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--secondary);
+    letter-spacing: -0.3px;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    margin-top: -4px;
+}
+
+/* Effet subtil de dégradé ou ombre pour un rendu premium */
+.newlub-logo .lub::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+    opacity: 0.6;
+}
+
+
+/* ========================================
+   ANIMATIONS NEW LUB - À ajouter à votre CSS
+   Compatible avec vos couleurs: --primary: #0056B3, --secondary: #FFD700
+   ======================================== */
+
+/* 1. ANIMATIONS GÉNÉRALES POUR LES ÉLÉMENTS */
+
+/* Animation slide in depuis la gauche */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation slide in depuis la droite */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation fade in depuis le bas */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation de zoom */
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 2. ANIMATIONS POUR LES CARTES DE SERVICE (section Service Start) */
+.d-flex.py-5.px-4 {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* Effet de brillance qui traverse la carte */
+.d-flex.py-5.px-4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+    transition: left 0.8s ease;
+    z-index: 1;
+}
+
+.d-flex.py-5.px-4:hover::before {
+    left: 100%;
+}
+
+/* Animation au hover de la carte */
+.d-flex.py-5.px-4:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 86, 179, 0.15);
+}
+
+/* Animation des icônes dans les cartes */
+.d-flex.py-5.px-4 .fa {
+    transition: all 0.4s ease;
+}
+
+.d-flex.py-5.px-4:hover .fa {
+    transform: scale(1.1) rotate(10deg);
+    color: var(--primary) !important;
+}
+
+/* 3. ANIMATIONS POUR LES BOUTONS (améliore votre hover existant) */
+.btn-primary,
+.btn-secondary {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Effet d'onde au clic */
+.btn-primary::after,
+.btn-secondary::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+}
+
+.btn-primary:active::after,
+.btn-secondary:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* 4. ANIMATIONS POUR LA SECTION ABOUT */
+.position-relative.h-100 {
+    overflow: hidden;
+}
+
+.position-relative.h-100 img {
+    transition: transform 0.6s ease;
+}
+
+.position-relative.h-100:hover img {
+    transform: scale(1.05);
+}
+
+/* Animation pour le badge d'expérience */
+.position-absolute.top-0.end-0 {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* 5. ANIMATIONS POUR LES STATISTIQUES (section Facts) */
+.container-fluid.fact .col-md-6,
+.container-fluid.fact .col-lg-3 {
+    transition: all 0.4s ease;
+}
+
+.container-fluid.fact .col-md-6:hover,
+.container-fluid.fact .col-lg-3:hover {
+    transform: translateY(-15px);
+}
+
+/* Animation pour les icônes des statistiques */
+.container-fluid.fact .fa {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Animation pour les chiffres */
+.container-fluid.fact h2 {
+    transition: all 0.3s ease;
+}
+
+.container-fluid.fact .col-md-6:hover h2,
+.container-fluid.fact .col-lg-3:hover h2 {
+    color: var(--secondary) !important;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* 6. ANIMATIONS POUR LES ONGLETS DE SERVICE */
+.service .nav .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.service .nav .nav-link:not(.active):hover {
+    transform: translateX(15px);
+    border-left: 4px solid var(--secondary);
+}
+
+.service .nav .nav-link:not(.active):hover i {
+    color: var(--secondary) !important;
+}
+
+/* Indicateur animé pour l'onglet actif */
+.service .nav .nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--secondary);
+    animation: slideInLeft 0.5s ease;
+}
+
+/* 7. ANIMATIONS POUR LA SECTION ÉQUIPE (Team) */
+.team-item {
+    transition: all 0.4s ease;
+}
+
+.team-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 86, 179, 0.15);
+}
+
+/* Animation pour les images d'équipe */
+.team-item img {
+    transition: all 0.4s ease;
+    filter: grayscale(0%);
+}
+
+.team-item:hover img {
+    filter: grayscale(0%) brightness(1.1);
+}
+
+/* 8. ANIMATIONS POUR LES TÉMOIGNAGES */
+.testimonial-item {
+    transition: all 0.3s ease;
+}
+
+.testimonial-item:hover {
+    transform: scale(1.02);
+}
+
+.testimonial-item img {
+    transition: all 0.3s ease;
+}
+
+.testimonial-item:hover img {
+    transform: scale(1.1);
+    border-color: var(--secondary) !important;
+}
+
+/* 9. ANIMATIONS POUR LE FORMULAIRE DE RÉSERVATION */
+.booking form .form-control {
+    transition: all 0.3s ease;
+}
+
+.booking form .form-control:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    border: 2px solid var(--secondary) !important;
+}
+
+/* 10. ANIMATIONS AU SCROLL (utilise CSS Intersection Observer via JavaScript) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Délais d'animation pour créer un effet de cascade */
+.animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+.animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+.animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
+.animate-on-scroll:nth-child(4) { transition-delay: 0.4s; }
+
+/* 11. ANIMATION POUR LES TITRES */
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+}
+
+/* Soulignement animé pour les titres principaux */
+.container .text-center h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: all 0.6s ease;
+    transform: translateX(-50%);
+}
+
+.container .text-center:hover h1::after {
+    width: 80px;
+}
+
+/* 12. ANIMATION POUR LE CAROUSEL */
+.carousel-caption h1 {
+    animation: slideInLeft 1s ease-out;
+}
+
+.carousel-caption h6 {
+    animation: slideInRight 1s ease-out 0.3s both;
+}
+
+.carousel-caption .col-lg-5 img {
+    animation: zoomIn 1.2s ease-out 0.6s both;
+}
+
+/* 13. EFFETS SPÉCIAUX POUR LES LIENS */
+a[href]:not(.btn):not(.nav-link) {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+a[href]:not(.btn):not(.nav-link)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary);
+    transition: width 0.3s ease;
+}
+
+a[href]:not(.btn):not(.nav-link):hover::after {
+    width: 100%;
+}
+
+/* 14. ANIMATION POUR LA NAVBAR AU SCROLL */
+@media (min-width: 992px) {
+    .navbar-light.scrolled {
+        background: rgba(248, 249, 250, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 86, 179, 0.1);
+        animation: slideInDown 0.3s ease;
+    }
+}
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* 15. MEDIA QUERIES POUR LES ANIMATIONS RESPONSIVES */
+@media (max-width: 768px) {
+    .d-flex.py-5.px-4:hover {
+        transform: translateY(-5px);
+    }
+
+    .team-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .container-fluid.fact .col-md-6:hover,
+    .container-fluid.fact .col-lg-3:hover {
+        transform: translateY(-10px);
+    }
+}
+
+
+/*** Footer ***/
+.footer {
+    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../img/carousel-bg-1.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.footer .btn.btn-social {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid #FFFFFF;
+    border-radius: 35px;
+    transition: .3s;
+}
+
+.footer .btn.btn-social:hover {
+    color: var(--primary);
+}
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(256, 256, 256, .1);
+}
+
+.footer .copyright a {
+    color: var(--light);
+}
+
+.footer .footer-menu a {
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid rgba(255, 255, 255, .3);
+}
+
+.footer .footer-menu a:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+}
