@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Nos Produits - New Lub{% endblock %}
-
 {% block stylesheets %}
     {{ parent() }}
     <style>
@@ -418,99 +417,43 @@
         }
     </style>
 {% endblock %}
-
 {% block body %}
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header mb-5 p-0"
-         style="background-image: url({{ asset('img/carousel-bg-1.jpg') }});">
-        <div class="container-fluid page-header-inner py-5">
-            <div class="container text-center">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">Nos Produits</h1>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb justify-content-center text-uppercase">
-                        <li class="breadcrumb-item" style="color: #FFD700"><a href="{{ path('app_main') }}"
-                                                                              style="color: #FFD700">Accueil</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Nos Produits</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- Page Header End -->
-
-    <!-- Products Section Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row">
-                <!-- Filtres de produits -->
+                <!-- Filtres -->
                 <div class="col-lg-3">
                     <div class="product-filters">
                         <h4 class="filter-title">Filtres</h4>
 
-                        <!-- Recherche -->
-                        <div class="filter-group">
-                            <h5>Recherche</h5>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Rechercher un produit...">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
+                        <form method="get" action="{{ path('app_products') }}">
+                            <!-- Recherche -->
+                            <div class="filter-group">
+                                <h5>Recherche</h5>
+                                <input type="text" name="search" class="form-control" placeholder="Rechercher...">
                             </div>
-                        </div>
 
-                        <!-- Catégories -->
-                        <div class="filter-group">
-                            <h5>Catégories</h5>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="cat1" checked>
-                                <label class="form-check-label" for="cat1">Huiles moteur</label>
+                            <!-- Catégories -->
+                            <div class="filter-group">
+                                <h5>Catégories</h5>
+                                <select name="category" class="form-select">
+                                    <option value="">Toutes</option>
+                                    <option value="huile">Huiles moteur</option>
+                                    <option value="graisse">Graisses</option>
+                                    <option value="additif">Additifs</option>
+                                </select>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="cat2">
-                                <label class="form-check-label" for="cat2">Graisses</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="cat3">
-                                <label class="form-check-label" for="cat3">Additifs</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="cat4">
-                                <label class="form-check-label" for="cat4">Lubrifiants industriels</label>
-                            </div>
-                        </div>
 
-                        <!-- Prix -->
-                        <div class="filter-group">
-                            <h5>Prix</h5>
-                            <div class="price-range">
-                                <input type="range" class="price-slider" min="0" max="1000" value="500">
-                                <div class="price-values">
-                                    <span>0 €</span>
-                                    <span>500 €</span>
-                                    <span>1000 €</span>
-                                </div>
+                            <!-- Prix -->
+                            <div class="filter-group">
+                                <h5>Prix</h5>
+                                <input type="number" name="minPrice" placeholder="Min" class="form-control mb-2">
+                                <input type="number" name="maxPrice" placeholder="Max" class="form-control">
                             </div>
-                        </div>
 
-                        <!-- Marques -->
-                                                <div class="filter-group">
-                                                    <h5>Marques</h5>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="brand1">
-                                                        <label class="form-check-label" for="brand1">New Lub Premium</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="brand2">
-                                                        <label class="form-check-label" for="brand2">New Lub Standard</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="brand3">
-                                                        <label class="form-check-label" for="brand3">New Lub Pro</label>
-                                                    </div>
-                                                </div>
-
-                        <button class="btn btn-primary w-100 mt-3">Appliquer les filtres</button>
-                        <button class="btn btn-outline-secondary w-100 mt-2">Réinitialiser</button>
+                            <button class="btn btn-primary w-100 mt-3" type="submit">Appliquer les filtres</button>
+                            <a href="{{ path('app_products') }}" class="btn btn-outline-secondary w-100 mt-2">Réinitialiser</a>
+                        </form>
                     </div>
                 </div>
 
@@ -518,17 +461,17 @@
                 <div class="col-lg-9">
                     <!-- Options d'affichage -->
                     <div class="display-options">
-                        <div class="result-count">12 produits trouvés</div>
+                        <div class="result-count">{{ products|length }} produits trouvés</div>
 
-                        <div class="sort-options">
-                            <select class="form-select">
-                                <option>Trier par: Pertinence</option>
-                                <option>Prix: Croissant</option>
-                                <option>Prix: Décroissant</option>
-                                <option>Note: La plus haute</option>
-                                <option>Nouveautés</option>
-                            </select>
-                        </div>
+{#                        <div class="sort-options">#}
+{#                            <select class="form-select">#}
+{#                                <option>Trier par: Pertinence</option>#}
+{#                                <option>Prix: Croissant</option>#}
+{#                                <option>Prix: Décroissant</option>#}
+{#                                <option>Note: La plus haute</option>#}
+{#                                <option>Nouveautés</option>#}
+{#                            </select>#}
+{#                        </div>#}
 
                         <div class="view-options">
                             <button class="view-btn active">
@@ -554,7 +497,6 @@
                     <div class="product-grid">
 
 
-
                         <!-- Produit 1 -->
                         {% for product in products %}
                             <div class="product-card wow fadeInUp" data-wow-delay="0.1s">
@@ -578,7 +520,7 @@
                                     </div>
                                 </div>
                                 <div class="product-info">
-                                                                        <div class="product-category">{{ product.name }}</div>
+                                    <div class="product-category">{{ product.name }}</div>
                                     <h3 class="product-title">{{ product.name }}</h3>
                                     <p class="product-description"> {{ product.description }}</p>
                                     <div class="product-rating">
@@ -594,11 +536,11 @@
                                     <div class="product-price">
                                         <div>
                                             <span class="price"> {{ product.price }} {{ product.devis }}   </span>
-                                                                                                                                <span class="price-original">38,90 €</span>
+                                            <span class="price-original">38,90 €</span>
                                         </div>
                                         <a class="add-to-cart-btn"
                                            href="{{ path('app_request_quote',{id:product.id}) }}">
-                                            <i class="fa fa-shopping-cart"></i> Demander Devis
+                                            <i class="fa fa-shopping-cart"></i>  Devis
                                         </a>
                                     </div>
                                 </div>
@@ -609,88 +551,15 @@
                     </div>
 
                     <!-- Pagination -->
-                    <nav class="product-pagination">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Précédent</a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Suivant</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {# Pagination avec ton style #}
+                    <div class="mt-4">
+                        {{ knp_pagination_render(products, 'pagination/product_pagination.html.twig') }}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Products Section End -->
 {% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Changement de vue (grille/liste)
-            const viewButtons = document.querySelectorAll('.view-btn');
-            const productGrid = document.querySelector('.product-grid');
-
-            viewButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    viewButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-
-                    if (this.querySelector('.fa-list')) {
-                        productGrid.classList.add('list-view');
-                    } else {
-                        productGrid.classList.remove('list-view');
-                    }
-                });
-            });
-
-            // Animation des cartes au scroll
-            const productCards = document.querySelectorAll('.product-card');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, {threshold: 0.1});
-
-            productCards.forEach(card => {
-                card.style.opacity = 0;
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
-            });
-
-            // Simulation du filtre de prix
-            const priceSlider = document.querySelector('.price-slider');
-            const priceValues = document.querySelectorAll('.price-values span');
-
-            if (priceSlider) {
-                priceSlider.addEventListener('input', function () {
-                    priceValues[1].textContent = this.value + ' €';
-                });
-            }
-        });
-    </script>
-{% endblock %}
-
-
-
-
 
 
 {#{% extends 'base.html.twig' %}#}
@@ -700,7 +569,7 @@
 {#{% block stylesheets %}#}
 {#    {{ parent() }}#}
 {#    <style>#}
-{#        /* Votre CSS existant reste inchangé */#}
+{#        /* Filtres et recherche */#}
 {#        .product-filters {#}
 {#            background: linear-gradient(135deg, rgba(0, 86, 179, 0.05), rgba(255, 215, 0, 0.05));#}
 {#            border-radius: 10px;#}
@@ -710,7 +579,407 @@
 {#            border-left: 4px solid var(--secondary);#}
 {#        }#}
 
-{#        /* ... (le reste de votre CSS) ... */#}
+{#        .filter-title {#}
+{#            color: var(--primary);#}
+{#            font-weight: 700;#}
+{#            margin-bottom: 20px;#}
+{#            position: relative;#}
+{#            padding-bottom: 10px;#}
+{#        }#}
+
+{#        .filter-title::after {#}
+{#            content: '';#}
+{#            position: absolute;#}
+{#            bottom: 0;#}
+{#            left: 0;#}
+{#            width: 50px;#}
+{#            height: 3px;#}
+{#            background: var(--secondary);#}
+{#        }#}
+
+{#        .filter-group {#}
+{#            margin-bottom: 20px;#}
+{#        }#}
+
+{#        .filter-group h5 {#}
+{#            color: var(--dark);#}
+{#            font-weight: 600;#}
+{#            margin-bottom: 12px;#}
+{#            font-size: 16px;#}
+{#        }#}
+
+{#        .form-check-label {#}
+{#            color: var(--dark);#}
+{#            cursor: pointer;#}
+{#            transition: all 0.3s;#}
+{#        }#}
+
+{#        .form-check-input:checked ~ .form-check-label {#}
+{#            color: var(--primary);#}
+{#            font-weight: 600;#}
+{#        }#}
+
+{#        .price-range {#}
+{#            padding: 10px 0;#}
+{#        }#}
+
+{#        .price-slider {#}
+{#            -webkit-appearance: none;#}
+{#            width: 100%;#}
+{#            height: 5px;#}
+{#            border-radius: 5px;#}
+{#            background: #ddd;#}
+{#            outline: none;#}
+{#        }#}
+
+{#        .price-slider::-webkit-slider-thumb {#}
+{#            -webkit-appearance: none;#}
+{#            appearance: none;#}
+{#            width: 20px;#}
+{#            height: 20px;#}
+{#            border-radius: 50%;#}
+{#            background: var(--secondary);#}
+{#            cursor: pointer;#}
+{#            border: 2px solid white;#}
+{#            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);#}
+{#        }#}
+
+{#        .price-values {#}
+{#            display: flex;#}
+{#            justify-content: space-between;#}
+{#            margin-top: 10px;#}
+{#            color: var(--dark);#}
+{#            font-size: 14px;#}
+{#        }#}
+
+{#        /* Grille de produits */#}
+{#        .product-grid {#}
+{#            display: grid;#}
+{#            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));#}
+{#            gap: 25px;#}
+{#            margin-bottom: 40px;#}
+{#        }#}
+
+{#        .product-card {#}
+{#            background: white;#}
+{#            border-radius: 12px;#}
+{#            overflow: hidden;#}
+{#            transition: all 0.4s ease;#}
+{#            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);#}
+{#            position: relative;#}
+{#            height: 100%;#}
+{#            display: flex;#}
+{#            flex-direction: column;#}
+{#        }#}
+
+{#        .product-card:hover {#}
+{#            transform: translateY(-10px);#}
+{#            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);#}
+{#        }#}
+
+{#        .product-badge {#}
+{#            position: absolute;#}
+{#            top: 15px;#}
+{#            left: 15px;#}
+{#            background: var(--secondary);#}
+{#            color: var(--dark);#}
+{#            padding: 5px 12px;#}
+{#            border-radius: 20px;#}
+{#            font-weight: 700;#}
+{#            font-size: 12px;#}
+{#            z-index: 2;#}
+{#            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);#}
+{#        }#}
+
+{#        .product-image {#}
+{#            height: 220px;#}
+{#            overflow: hidden;#}
+{#            position: relative;#}
+{#        }#}
+
+{#        .product-image img {#}
+{#            width: 100%;#}
+{#            height: 100%;#}
+{#            object-fit: cover;#}
+{#            transition: transform 0.5s ease;#}
+{#        }#}
+
+{#        .product-card:hover .product-image img {#}
+{#            transform: scale(1.1);#}
+{#        }#}
+
+{#        .product-overlay {#}
+{#            position: absolute;#}
+{#            top: 0;#}
+{#            left: 0;#}
+{#            width: 100%;#}
+{#            height: 100%;#}
+{#            background: rgba(0, 86, 179, 0.7);#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            opacity: 0;#}
+{#            transition: opacity 0.4s ease;#}
+{#        }#}
+
+{#        .product-card:hover .product-overlay {#}
+{#            opacity: 1;#}
+{#        }#}
+
+{#        .product-actions {#}
+{#            display: flex;#}
+{#            gap: 10px;#}
+{#        }#}
+
+{#        .product-action-btn {#}
+{#            width: 40px;#}
+{#            height: 40px;#}
+{#            border-radius: 50%;#}
+{#            background: white;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            color: var(--primary);#}
+{#            transition: all 0.3s;#}
+{#            transform: translateY(20px);#}
+{#            opacity: 0;#}
+{#        }#}
+
+{#        .product-card:hover .product-action-btn {#}
+{#            transform: translateY(0);#}
+{#            opacity: 1;#}
+{#        }#}
+
+{#        .product-action-btn:hover {#}
+{#            background: var(--secondary);#}
+{#            color: var(--dark);#}
+{#            transform: scale(1.1);#}
+{#        }#}
+
+{#        .product-info {#}
+{#            padding: 20px;#}
+{#            flex-grow: 1;#}
+{#            display: flex;#}
+{#            flex-direction: column;#}
+{#        }#}
+
+{#        .product-category {#}
+{#            color: #777;#}
+{#            font-size: 12px;#}
+{#            text-transform: uppercase;#}
+{#            letter-spacing: 1px;#}
+{#            margin-bottom: 8px;#}
+{#        }#}
+
+{#        .product-title {#}
+{#            font-size: 18px;#}
+{#            font-weight: 700;#}
+{#            color: var(--dark);#}
+{#            margin-bottom: 10px;#}
+{#            line-height: 1.3;#}
+{#        }#}
+
+{#        .product-description {#}
+{#            color: #666;#}
+{#            font-size: 14px;#}
+{#            margin-bottom: 15px;#}
+{#            flex-grow: 1;#}
+{#        }#}
+
+{#        .product-rating {#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            margin-bottom: 15px;#}
+{#        }#}
+
+{#        .product-stars {#}
+{#            color: var(--secondary);#}
+{#            margin-right: 8px;#}
+{#        }#}
+
+{#        .product-review-count {#}
+{#            color: #777;#}
+{#            font-size: 13px;#}
+{#        }#}
+
+{#        .product-price {#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: space-between;#}
+{#            margin-top: auto;#}
+{#        }#}
+
+{#        .price {#}
+{#            font-weight: 700;#}
+{#            color: var(--primary);#}
+{#            font-size: 20px;#}
+{#        }#}
+
+{#        .price-original {#}
+{#            color: #999;#}
+{#            text-decoration: line-through;#}
+{#            font-size: 14px;#}
+{#            margin-left: 8px;#}
+{#        }#}
+
+{#        .add-to-cart-btn {#}
+{#            background: var(--primary);#}
+{#            color: white;#}
+{#            border: none;#}
+{#            padding: 8px 15px;#}
+{#            border-radius: 5px;#}
+{#            font-weight: 600;#}
+{#            font-size: 14px;#}
+{#            transition: all 0.3s;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            gap: 5px;#}
+{#        }#}
+
+{#        .add-to-cart-btn:hover {#}
+{#            background: var(--secondary);#}
+{#            color: var(--dark);#}
+{#            transform: translateY(-2px);#}
+{#        }#}
+
+{#        /* Pagination */#}
+{#        .product-pagination {#}
+{#            display: flex;#}
+{#            justify-content: center;#}
+{#            margin-top: 40px;#}
+{#        }#}
+
+{#        .page-link {#}
+{#            color: var(--primary);#}
+{#            border: 1px solid #ddd;#}
+{#            padding: 10px 18px;#}
+{#            margin: 0 5px;#}
+{#            border-radius: 5px;#}
+{#            transition: all 0.3s;#}
+{#        }#}
+
+{#        .page-link:hover,#}
+{#        .page-item.active .page-link {#}
+{#            background: var(--primary);#}
+{#            color: white;#}
+{#            border-color: var(--primary);#}
+{#        }#}
+
+{#        /* Options d'affichage et tri */#}
+{#        .display-options {#}
+{#            display: flex;#}
+{#            justify-content: space-between;#}
+{#            align-items: center;#}
+{#            margin-bottom: 25px;#}
+{#            padding: 15px 20px;#}
+{#            background: white;#}
+{#            border-radius: 8px;#}
+{#            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);#}
+{#        }#}
+
+{#        .result-count {#}
+{#            color: var(--dark);#}
+{#            font-weight: 500;#}
+{#        }#}
+
+{#        .sort-options select {#}
+{#            border: 1px solid #ddd;#}
+{#            padding: 8px 15px;#}
+{#            border-radius: 5px;#}
+{#            color: var(--dark);#}
+{#            outline: none;#}
+{#            cursor: pointer;#}
+{#        }#}
+
+{#        .view-options {#}
+{#            display: flex;#}
+{#            gap: 10px;#}
+{#        }#}
+
+{#        .view-btn {#}
+{#            width: 38px;#}
+{#            height: 38px;#}
+{#            border-radius: 5px;#}
+{#            border: 1px solid #ddd;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            color: #777;#}
+{#            transition: all 0.3s;#}
+{#            background: white;#}
+{#        }#}
+
+{#        .view-btn.active,#}
+{#        .view-btn:hover {#}
+{#            background: var(--primary);#}
+{#            color: white;#}
+{#            border-color: var(--primary);#}
+{#        }#}
+
+{#        /* Responsive */#}
+{#        @media (max-width: 992px) {#}
+{#            .product-grid {#}
+{#                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));#}
+{#            }#}
+{#        }#}
+
+{#        @media (max-width: 768px) {#}
+{#            .display-options {#}
+{#                flex-direction: column;#}
+{#                gap: 15px;#}
+{#                align-items: flex-start;#}
+{#            }#}
+
+{#            .view-options {#}
+{#                align-self: flex-end;#}
+{#            }#}
+{#        }#}
+
+{#        @media (max-width: 576px) {#}
+{#            .product-grid {#}
+{#                grid-template-columns: 1fr;#}
+{#            }#}
+
+{#            .product-image {#}
+{#                height: 200px;#}
+{#            }#}
+{#        }#}
+
+{#        /* Animation pour le chargement des produits */#}
+{#        @keyframes fadeIn {#}
+{#            from {#}
+{#                opacity: 0;#}
+{#                transform: translateY(20px);#}
+{#            }#}
+{#            to {#}
+{#                opacity: 1;#}
+{#                transform: translateY(0);#}
+{#            }#}
+{#        }#}
+
+{#        .product-card {#}
+{#            animation: fadeIn 0.5s ease-out;#}
+{#        }#}
+
+{#        .product-card:nth-child(2) {#}
+{#            animation-delay: 0.1s;#}
+{#        }#}
+
+{#        .product-card:nth-child(3) {#}
+{#            animation-delay: 0.2s;#}
+{#        }#}
+
+{#        .product-card:nth-child(4) {#}
+{#            animation-delay: 0.3s;#}
+{#        }#}
+
+{#        .product-card:nth-child(5) {#}
+{#            animation-delay: 0.4s;#}
+{#        }#}
+
+{#        .product-card:nth-child(6) {#}
+{#            animation-delay: 0.5s;#}
+{#        }#}
 {#    </style>#}
 {#{% endblock %}#}
 
@@ -739,67 +1008,89 @@
 {#            <div class="row">#}
 {#                <!-- Filtres de produits -->#}
 {#                <div class="col-lg-3">#}
-{#                    <form id="filter-form" method="get" action="{{ path('app_products') }}">#}
-{#                        <div class="product-filters">#}
-{#                            <h4 class="filter-title">Filtres</h4>#}
+{#                    <div class="product-filters">#}
+{#                        <h4 class="filter-title">Filtres</h4>#}
 
-{#                            <!-- Recherche -->#}
-{#                            <div class="filter-group">#}
-{#                                <h5>Recherche</h5>#}
-{#                                <div class="input-group">#}
-{#                                    <input type="text" class="form-control" name="search" placeholder="Rechercher un produit..." value="{{ app.request.get('search') }}">#}
-{#                                    <button class="btn btn-primary" type="submit">#}
-{#                                        <i class="fa fa-search"></i>#}
-{#                                    </button>#}
-{#                                </div>#}
+{#                        <!-- Recherche -->#}
+{#                        <div class="filter-group">#}
+{#                            <h5>Recherche</h5>#}
+{#                            <div class="input-group">#}
+{#                                <input type="text" class="form-control" placeholder="Rechercher un produit...">#}
+{#                                <button class="btn btn-primary" type="button">#}
+{#                                    <i class="fa fa-search"></i>#}
+{#                                </button>#}
 {#                            </div>#}
-
-{#                            <!-- Catégories -->#}
-{#                            <div class="filter-group">#}
-{#                                <h5>Catégories</h5>#}
-{#                                {% for category in categories %}#}
-{#                                    <div class="form-check">#}
-{#                                        <input class="form-check-input" type="checkbox" name="categories[]"#}
-{#                                               value="{{ category.id }}" id="cat{{ category.id }}"#}
-{#                                               {% if category.id in app.request.get('categories', []) %}checked{% endif %}>#}
-{#                                        <label class="form-check-label" for="cat{{ category.id }}">{{ category.name }}</label>#}
-{#                                    </div>#}
-{#                                {% endfor %}#}
-{#                            </div>#}
-
-{#                            <!-- Prix -->#}
-{#                            <div class="filter-group">#}
-{#                                <h5>Prix</h5>#}
-{#                                <div class="price-range">#}
-{#                                    <input type="range" class="price-slider" name="price_max" min="0" max="1000"#}
-{#                                           value="{{ app.request.get('price_max', 1000) }}">#}
-{#                                    <div class="price-values">#}
-{#                                        <span>0 €</span>#}
-{#                                        <span id="current-price">{{ app.request.get('price_max', 1000) }} €</span>#}
-{#                                        <span>1000 €</span>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-
-{#                            <button type="submit" class="btn btn-primary w-100 mt-3">Appliquer les filtres</button>#}
-{#                            <a href="{{ path('app_products') }}" class="btn btn-outline-secondary w-100 mt-2">Réinitialiser</a>#}
 {#                        </div>#}
-{#                    </form>#}
+
+{#                        <!-- Catégories -->#}
+{#                        <div class="filter-group">#}
+{#                            <h5>Catégories</h5>#}
+{#                            <div class="form-check">#}
+{#                                <input class="form-check-input" type="checkbox" id="cat1" checked>#}
+{#                                <label class="form-check-label" for="cat1">Huiles moteur</label>#}
+{#                            </div>#}
+{#                            <div class="form-check">#}
+{#                                <input class="form-check-input" type="checkbox" id="cat2">#}
+{#                                <label class="form-check-label" for="cat2">Graisses</label>#}
+{#                            </div>#}
+{#                            <div class="form-check">#}
+{#                                <input class="form-check-input" type="checkbox" id="cat3">#}
+{#                                <label class="form-check-label" for="cat3">Additifs</label>#}
+{#                            </div>#}
+{#                            <div class="form-check">#}
+{#                                <input class="form-check-input" type="checkbox" id="cat4">#}
+{#                                <label class="form-check-label" for="cat4">Lubrifiants industriels</label>#}
+{#                            </div>#}
+{#                        </div>#}
+
+{#                        <!-- Prix -->#}
+{#                        <div class="filter-group">#}
+{#                            <h5>Prix</h5>#}
+{#                            <div class="price-range">#}
+{#                                <input type="range" class="price-slider" min="0" max="1000" value="500">#}
+{#                                <div class="price-values">#}
+{#                                    <span>0 €</span>#}
+{#                                    <span>500 €</span>#}
+{#                                    <span>1000 €</span>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+
+{#                        <!-- Marques -->#}
+{#                                                <div class="filter-group">#}
+{#                                                    <h5>Marques</h5>#}
+{#                                                    <div class="form-check">#}
+{#                                                        <input class="form-check-input" type="checkbox" id="brand1">#}
+{#                                                        <label class="form-check-label" for="brand1">New Lub Premium</label>#}
+{#                                                    </div>#}
+{#                                                    <div class="form-check">#}
+{#                                                        <input class="form-check-input" type="checkbox" id="brand2">#}
+{#                                                        <label class="form-check-label" for="brand2">New Lub Standard</label>#}
+{#                                                    </div>#}
+{#                                                    <div class="form-check">#}
+{#                                                        <input class="form-check-input" type="checkbox" id="brand3">#}
+{#                                                        <label class="form-check-label" for="brand3">New Lub Pro</label>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+
+{#                        <button class="btn btn-primary w-100 mt-3">Appliquer les filtres</button>#}
+{#                        <button class="btn btn-outline-secondary w-100 mt-2">Réinitialiser</button>#}
+{#                    </div>#}
 {#                </div>#}
 
 {#                <!-- Liste de produits -->#}
 {#                <div class="col-lg-9">#}
 {#                    <!-- Options d'affichage -->#}
 {#                    <div class="display-options">#}
-{#                        <div class="result-count">{{ products.getTotalItemCount }} produits trouvés</div>#}
+{#                        <div class="result-count">12 produits trouvés</div>#}
 
 {#                        <div class="sort-options">#}
-{#                            <select class="form-select" id="sort-select">#}
-{#                                <option value="relevance" {% if app.request.get('sort') == 'relevance' %}selected{% endif %}>Trier par: Pertinence</option>#}
-{#                                <option value="price_asc" {% if app.request.get('sort') == 'price_asc' %}selected{% endif %}>Prix: Croissant</option>#}
-{#                                <option value="price_desc" {% if app.request.get('sort') == 'price_desc' %}selected{% endif %}>Prix: Décroissant</option>#}
-{#                                <option value="name_asc" {% if app.request.get('sort') == 'name_asc' %}selected{% endif %}>Nom: A-Z</option>#}
-{#                                <option value="name_desc" {% if app.request.get('sort') == 'name_desc' %}selected{% endif %}>Nom: Z-A</option>#}
+{#                            <select class="form-select">#}
+{#                                <option>Trier par: Pertinence</option>#}
+{#                                <option>Prix: Croissant</option>#}
+{#                                <option>Prix: Décroissant</option>#}
+{#                                <option>Note: La plus haute</option>#}
+{#                                <option>Nouveautés</option>#}
 {#                            </select>#}
 {#                        </div>#}
 
@@ -819,26 +1110,31 @@
 {#                                <i class="fa fa-info-circle me-2"></i>#}
 {#                                {{ message }}#}
 {#                            </div>#}
+
+
 {#                        {% endfor %}#}
 {#                    {% endfor %}#}
-
 {#                    <!-- Grille de produits -->#}
 {#                    <div class="product-grid">#}
+
+
+
+{#                        <!-- Produit 1 -->#}
 {#                        {% for product in products %}#}
 {#                            <div class="product-card wow fadeInUp" data-wow-delay="0.1s">#}
 {#                                <span class="product-badge">Nouveau</span>#}
 {#                                <div class="product-image">#}
 {#                                    <img src="{{ asset('img/products/'~product.imageName) }}"#}
-{#                                         alt="{{ product.name }}">#}
+{#                                         alt="Huile moteur premium">#}
 {#                                    <div class="product-overlay">#}
 {#                                        <div class="product-actions">#}
 {#                                            <a href="#" class="product-action-btn">#}
 {#                                                <i class="fa fa-heart"></i>#}
 {#                                            </a>#}
-{#                                            <a href="{{ path('app_product_detail', {id: product.id}) }}" class="product-action-btn">#}
+{#                                            <a href="#" class="product-action-btn">#}
 {#                                                <i class="fa fa-eye"></i>#}
 {#                                            </a>#}
-{#                                            <a href="{{ path('app_request_quote', {id: product.id}) }}"#}
+{#                                            <a href="{{ path('app_request_quote',{id:product.id}) }}"#}
 {#                                               class="product-action-btn">#}
 {#                                                <i class="fa fa-shopping-cart"></i>#}
 {#                                            </a>#}
@@ -846,8 +1142,9 @@
 {#                                    </div>#}
 {#                                </div>#}
 {#                                <div class="product-info">#}
+{#                                                                        <div class="product-category">{{ product.name }}</div>#}
 {#                                    <h3 class="product-title">{{ product.name }}</h3>#}
-{#                                    <p class="product-description">{{ product.description|slice(0, 100) }}...</p>#}
+{#                                    <p class="product-description"> {{ product.description }}</p>#}
 {#                                    <div class="product-rating">#}
 {#                                        <div class="product-stars">#}
 {#                                            <i class="fa fa-star"></i>#}
@@ -860,27 +1157,40 @@
 {#                                    </div>#}
 {#                                    <div class="product-price">#}
 {#                                        <div>#}
-{#                                            <span class="price">{{ product.price }} {{ product.devis }}</span>#}
+{#                                            <span class="price"> {{ product.price }} {{ product.devis }}   </span>#}
+{#                                                                                                                                <span class="price-original">38,90 €</span>#}
 {#                                        </div>#}
 {#                                        <a class="add-to-cart-btn"#}
-{#                                           href="{{ path('app_request_quote', {id: product.id}) }}">#}
+{#                                           href="{{ path('app_request_quote',{id:product.id}) }}">#}
 {#                                            <i class="fa fa-shopping-cart"></i> Demander Devis#}
 {#                                        </a>#}
 {#                                    </div>#}
 {#                                </div>#}
 {#                            </div>#}
-{#                        {% else %}#}
-{#                            <div class="col-12 text-center py-5">#}
-{#                                <i class="fa fa-search fa-3x text-muted mb-3"></i>#}
-{#                                <h4 class="text-muted">Aucun produit trouvé</h4>#}
-{#                                <p class="text-muted">Essayez de modifier vos critères de recherche</p>#}
-{#                            </div>#}
 {#                        {% endfor %}#}
+
+
 {#                    </div>#}
 
 {#                    <!-- Pagination -->#}
 {#                    <nav class="product-pagination">#}
-{#                        {{ knp_pagination_render(products) }}#}
+{#                        <ul class="pagination">#}
+{#                            <li class="page-item disabled">#}
+{#                                <a class="page-link" href="#" tabindex="-1">Précédent</a>#}
+{#                            </li>#}
+{#                            <li class="page-item active">#}
+{#                                <a class="page-link" href="#">1</a>#}
+{#                            </li>#}
+{#                            <li class="page-item">#}
+{#                                <a class="page-link" href="#">2</a>#}
+{#                            </li>#}
+{#                            <li class="page-item">#}
+{#                                <a class="page-link" href="#">3</a>#}
+{#                            </li>#}
+{#                            <li class="page-item">#}
+{#                                <a class="page-link" href="#">Suivant</a>#}
+{#                            </li>#}
+{#                        </ul>#}
 {#                    </nav>#}
 {#                </div>#}
 {#            </div>#}
@@ -929,34 +1239,18 @@
 {#                observer.observe(card);#}
 {#            });#}
 
-{#            // Filtre de prix#}
+{#            // Simulation du filtre de prix#}
 {#            const priceSlider = document.querySelector('.price-slider');#}
-{#            const currentPrice = document.querySelector('#current-price');#}
+{#            const priceValues = document.querySelectorAll('.price-values span');#}
 
-{#            if (priceSlider && currentPrice) {#}
+{#            if (priceSlider) {#}
 {#                priceSlider.addEventListener('input', function () {#}
-{#                    currentPrice.textContent = this.value + ' €';#}
+{#                    priceValues[1].textContent = this.value + ' €';#}
 {#                });#}
 {#            }#}
-
-{#            // Tri des produits#}
-{#            const sortSelect = document.querySelector('#sort-select');#}
-{#            if (sortSelect) {#}
-{#                sortSelect.addEventListener('change', function() {#}
-{#                    const url = new URL(window.location.href);#}
-{#                    url.searchParams.set('sort', this.value);#}
-{#                    window.location.href = url.toString();#}
-{#                });#}
-{#            }#}
-
-{#            // Soumission automatique des filtres#}
-{#            const filterCheckboxes = document.querySelectorAll('input[type="checkbox"]');#}
-{#            filterCheckboxes.forEach(checkbox => {#}
-{#                checkbox.addEventListener('change', function() {#}
-{#                    document.getElementById('filter-form').submit();#}
-{#                });#}
-{#            });#}
 {#        });#}
 {#    </script>#}
 {#{% endblock %}#}
+
+
 

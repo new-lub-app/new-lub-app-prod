@@ -1,16 +1,18 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
 
-    <a href="{{ path('app_main') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5"> <div class="d-flex align-items-center"> <!-- Nouveau logo SVG New Lub --> <svg class="me-2" style="width: 40px; height: 40px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"> <defs> <linearGradient id="waterGradient" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" /> <stop offset="50%" style="stop-color:#4A90E2;stop-opacity:1" /> <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" /> </linearGradient> <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" /> <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.2" /> </linearGradient> </defs> <path fill="url(#waterGradient)" d="M50,10 C30,30 15,50 15,70 C15,85 30,100 50,100 C70,100 85,85 85,70 C85,50 70,30 50,10 Z"/> <ellipse fill="url(#highlightGradient)" cx="42" cy="35" rx="8" ry="15" transform="rotate(-20 42 35)"/> <circle fill="url(#highlightGradient)" cx="60" cy="55" r="3"/> </svg> <span class="newlub-logo"> <span class="new">NEW</span> <span class="lub">LUB</span> </span> </div> </a>
+    <a href="{{ path('app_main') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5"> <div class="d-flex align-items-center">
+{#            <!-- Nouveau logo SVG New Lub --> <svg class="me-2" style="width: 40px; height: 40px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"> <defs>#}
+{#                    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" /> <stop offset="50%" style="stop-color:#4A90E2;stop-opacity:1" /> #}
+{#                        <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" /> </linearGradient> <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="100%" y2="100%"> #}
+{#                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" /> <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.2" /> </linearGradient> </defs> #}
+{#                #}
+{#                <path fill="url(#waterGradient)" d="M50,10 C30,30 15,50 15,70 C15,85 30,100 50,100 C70,100 85,85 85,70 C85,50 70,30 50,10 Z"/>#}
+{#                <ellipse fill="url(#highlightGradient)" cx="42" cy="35" rx="8" ry="15" transform="rotate(-20 42 35)"/> <circle fill="url(#highlightGradient)"#}
+{#                                                                                                                               cx="60" cy="55" r="3"/> </svg> #}
+            <img src="{{ asset('img/logo_icon.png') }}" style="width: 40px; height: 40px" alt="icon of logo">
+            <span class="newlub-logo"> <span class="new">NEW</span> <span class="lub">LUB</span> </span> </div> </a>
 
-{#    <a href="{{ path('app_main') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">#}
-{#        <div class="d-flex align-items-center">#}
-{#            <i class="fa fa-car me-2" style="color: var(--secondary); font-size: 1.8rem;"></i>#}
-{#            <span class="newlub-logo">#}
-{#            <span class="new">NEW</span>#}
-{#            <span class="lub">LUB</span>#}
-{#        </span>#}
-{#        </div>#}
-{#    </a>#}
+
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,48 +20,11 @@
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="{{ path('app_main') }}" class="nav-item nav-link {{ app.request.attributes.get('_route') == 'app_main' ? 'active' : '' }}">Accueil</a>
             <a href="{{ path('app_about') }}" class="nav-item nav-link {{ app.request.attributes.get('_route') == 'app_about' ? 'active' : '' }}">À propos</a>
-            <a href="{{  path('app_products')  }}" class="nav-item nav-link {{ app.request.attributes.get('_route') == 'app_products' ? 'active' : '' }}">Produits</a>
-{#            <div class="nav-item dropdown">#}
-{#                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>#}
-{#                <div class="dropdown-menu fade-up m-0">#}
-{#                    <a href="booking.html" class="dropdown-item">Booking</a>#}
-{#                    <a href="team.html" class="dropdown-item">Technicians</a>#}
-{#                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>#}
-{#                    <a href="404.html" class="dropdown-item">404 Page</a>#}
-{#                </div>#}
-{#            </div>#}
+            <a href="{{  path('app_products')  }}" class="nav-item nav-link {% if app.request.attributes.get('_route')=='app_request_quote' or app.request.attributes.get('_route') == 'app_products' %} active {% endif %}">Produits</a>
+
             <a href="{{ path('app_contact') }}" class="nav-item nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">Contact</a>
         </div>
-        <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Obtenir un devis<i class="fa fa-arrow-right ms-3"></i></a>
+        <a href="{{  path('app_products')  }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Obtenir un devis<i class="fa fa-arrow-right ms-3"></i></a>
     </div>
 </nav>
 
-
-
-{#<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">#}
-{#    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">#}
-
-{#        <h2 class="m-0 text-primary"><i class="fa fa-car me-3"></i>NewLub</h2>#}
-{#    </a>#}
-{#    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">#}
-{#        <span class="navbar-toggler-icon"></span>#}
-{#    </button>#}
-{#    <div class="collapse navbar-collapse" id="navbarCollapse">#}
-{#        <div class="navbar-nav ms-auto p-4 p-lg-0">#}
-{#            <a href="{{  path('app_main') }}" class="nav-item nav-link active">Accueil</a>#}
-{#            <a href="about.html" class="nav-item nav-link">About</a>#}
-{#            <a href="service.html" class="nav-item nav-link">Services</a>#}
-{#            <div class="nav-item dropdown">#}
-{#                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>#}
-{#                <div class="dropdown-menu fade-up m-0">#}
-{#                    <a href="booking.html" class="dropdown-item">Booking</a>#}
-{#                    <a href="team.html" class="dropdown-item">Technicians</a>#}
-{#                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>#}
-{#                    <a href="404.html" class="dropdown-item">404 Page</a>#}
-{#                </div>#}
-{#            </div>#}
-{#            <a href="contact.html" class="nav-item nav-link">Contact</a>#}
-{#        </div>#}
-{#        <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Get A Quote<i class="fa fa-arrow-right ms-3"></i></a>#}
-{#    </div>#}
-{#</nav>#}

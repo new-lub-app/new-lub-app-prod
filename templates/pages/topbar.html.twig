@@ -6,8 +6,9 @@
                 <small>{{  address }}</small>
             </div>
             <div class="h-100 d-inline-flex align-items-center py-3">
-                <small class="far fa-clock text-primary me-2"></small>
-                <small>{{ "now"|format_datetime(locale='fr', pattern='EEEE d MMMM Y') }}</small>
+                <small class="far fa-envelope-open text-primary me-2"></small>
+{#                <small>{{ "now"|format_datetime(locale='fr', pattern='EEEE d MMMM Y') }}</small>#}
+                <small>{{ email_contact }}</small>
 
             </div>
         </div>

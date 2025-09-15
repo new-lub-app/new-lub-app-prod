@@ -1,0 +1,28 @@
+{% if pageCount > 1 %}
+    <nav class="product-pagination">
+        <ul class="pagination">
+            {# Lien précédent #}
+            <li class="page-item {% if previous is not defined %}disabled{% endif %}">
+                <a class="page-link" href="{{ previous.url ?? '#' }}" tabindex="-1">
+                    <i class="fa fa-chevron-left"></i> Précédent
+                </a>
+            </li>
+
+            {# Pages #}
+            {% for page in pagesInRange %}
+                <li class="page-item {% if page == current %}active{% endif %}">
+                    <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): page})) }}">
+                        {{ page }}
+                    </a>
+                </li>
+            {% endfor %}
+
+            {# Lien suivant #}
+            <li class="page-item {% if next is not defined %}disabled{% endif %}">
+                <a class="page-link" href="{{ next.url ?? '#' }}">
+                    Suivant <i class="fa fa-chevron-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+{% endif %}
