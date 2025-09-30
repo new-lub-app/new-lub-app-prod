@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="lubrifiants, graisses automobiles, fabrication tunisienne, New Lub, huiles industrielles, entretien véhicule, lubrifiant professionnel">
-    <meta name="description"
-          content="New Lub est une société tunisienne spécialisée dans la fabrication et la commercialisation d’huiles et de graisses industrielles et automobiles. Forte d’un savoir-faire local et d’un respect strict des normes internationales, elle propose des produits de haute qualité adaptés aux besoins des particuliers, des professionnels et des entreprises.">
+
+    <!-- Balises SEO -->
+    <meta name="keywords" content="lubrifiants, graisses automobiles, huiles industrielles, fabrication tunisienne, New Lub, entretien véhicule, lubrifiant professionnel, huiles moteur Tunisie">
+    <meta name="description" content="New Lub, société tunisienne, fabrique et commercialise des huiles et graisses industrielles et automobiles. Produits certifiés, adaptés aux particuliers et professionnels.">
 
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="New Lub - Fabrication de lubrifiants et graisses automobiles">
-    <meta property="og:description"
-          content="New Lub est une société tunisienne spécialisée dans la fabrication et la commercialisation d’huiles et de graisses industrielles et automobiles. Forte d’un savoir-faire local et d’un respect strict des normes internationales, elle propose des produits de haute qualité adaptés aux besoins des particuliers, des professionnels et des entreprises.">
+    <meta property="og:title" content="New Lub | Huiles et graisses industrielles & automobiles en Tunisie">
+    <meta property="og:description" content="New Lub, société tunisienne, fabrique et commercialise des huiles et graisses industrielles et automobiles. Produits certifiés, adaptés aux particuliers et professionnels.">
     <meta property="og:image" content="{{ asset('https://new-lub.com/img/Logo_New_Lub.png') }}">
     <meta property="og:url" content="{{ app.request.getSchemeAndHttpHost() ~ app.request.pathInfo }}">
     <meta property="og:type" content="website">
@@ -38,7 +38,7 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-    <title>{% block title %}New Lub - Accueil{% endblock %}</title>
+    <title>{% block title %}New Lub | Huiles et graisses industrielles & automobiles en Tunisie{% endblock %}</title>
 
     {% block stylesheets %}{% endblock %}
 </head>
@@ -63,15 +63,15 @@
 <!-- Navbar End -->
 
 {% block body %}{% endblock %}
+
 <!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" style="border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" style="border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" aria-label="Retour en haut">
     <i class="bi bi-arrow-up" style="color: var(--secondary);"></i>
 </a>
+
 <!-- Footer Start -->
 {% include './pages/footer.html.twig' %}
 <!-- Footer End -->
-
-
 
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -100,3 +100,108 @@
 
 </body>
 </html>
+
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="fr">#}
+{#<head>#}
+{#    <meta charset="utf-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <meta name="keywords" content="lubrifiants, graisses automobiles, fabrication tunisienne, New Lub, huiles industrielles, entretien véhicule, lubrifiant professionnel">#}
+{#    <meta name="description"#}
+{#          content="New Lub est une société tunisienne spécialisée dans la fabrication et la commercialisation d’huiles et de graisses industrielles et automobiles. Forte d’un savoir-faire local et d’un respect strict des normes internationales, elle propose des produits de haute qualité adaptés aux besoins des particuliers, des professionnels et des entreprises.">#}
+
+{#    <!-- Open Graph / Social Media -->#}
+{#    <meta property="og:title" content="New Lub - Fabrication de lubrifiants et graisses automobiles">#}
+{#    <meta property="og:description"#}
+{#          content="New Lub est une société tunisienne spécialisée dans la fabrication et la commercialisation d’huiles et de graisses industrielles et automobiles. Forte d’un savoir-faire local et d’un respect strict des normes internationales, elle propose des produits de haute qualité adaptés aux besoins des particuliers, des professionnels et des entreprises.">#}
+{#    <meta property="og:image" content="{{ asset('https://new-lub.com/img/Logo_New_Lub.png') }}">#}
+{#    <meta property="og:url" content="{{ app.request.getSchemeAndHttpHost() ~ app.request.pathInfo }}">#}
+{#    <meta property="og:type" content="website">#}
+{#    <meta property="og:locale" content="fr_FR">#}
+{#    <meta name="author" content="New Lub">#}
+
+{#    <!-- Favicon -->#}
+{#    <link href="{{ asset('img/favicon.ico') }}" rel="icon">#}
+
+{#    <!-- Google Fonts -->#}
+{#    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">#}
+
+{#    <!-- Icon Font Stylesheets -->#}
+{#    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">#}
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">#}
+
+{#    <!-- Libraries Stylesheet -->#}
+{#    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">#}
+{#    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">#}
+{#    <link href="{{ asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet"/>#}
+
+{#    <!-- Customized Bootstrap Stylesheet -->#}
+{#    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">#}
+
+{#    <!-- Template Stylesheet -->#}
+{#    <link href="{{ asset('css/style.css') }}" rel="stylesheet">#}
+
+{#    <title>{% block title %}New Lub - Accueil{% endblock %}</title>#}
+
+{#    {% block stylesheets %}{% endblock %}#}
+{#</head>#}
+{#<body>#}
+
+{#<!-- Spinner Start -->#}
+{#<div id="spinner"#}
+{#     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"#}
+{#     style="background-color: rgba(255,255,255,0.95);">#}
+{#    <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">#}
+{#        <span class="sr-only">Chargement...</span>#}
+{#    </div>#}
+{#</div>#}
+{#<!-- Spinner End -->#}
+
+{#<!-- Topbar Start -->#}
+{#{% include './pages/topbar.html.twig' %}#}
+{#<!-- Topbar End -->#}
+
+{#<!-- Navbar Start -->#}
+{#{% include './pages/navbar.html.twig' %}#}
+{#<!-- Navbar End -->#}
+
+{#{% block body %}{% endblock %}#}
+{#<!-- Back to Top -->#}
+{#<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" style="border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">#}
+{#    <i class="bi bi-arrow-up" style="color: var(--secondary);"></i>#}
+{#</a>#}
+{#<!-- Footer Start -->#}
+{#{% include './pages/footer.html.twig' %}#}
+{#<!-- Footer End -->#}
+
+
+
+{#<!-- JavaScript Libraries -->#}
+{#<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>#}
+{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>#}
+
+{#<script src="{{ asset('lib/wow/wow.min.js') }}"></script>#}
+{#<script src="{{ asset('lib/easing/easing.min.js') }}"></script>#}
+{#<script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>#}
+{#<script src="{{ asset('lib/counterup/counterup.min.js') }}"></script>#}
+{#<script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>#}
+{#<script src="{{ asset('lib/tempusdominus/js/moment.min.js') }}"></script>#}
+{#<script src="{{ asset('lib/tempusdominus/js/moment-timezone.min.js') }}"></script>#}
+{#<script src="{{ asset('lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>#}
+
+{#<!-- Template Javascript -->#}
+{#<script src="{{ asset('js/main.js') }}"></script>#}
+
+{#<!-- Google Analytics (optionnel) -->#}
+{#<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>#}
+{#<script>#}
+{#    window.dataLayer = window.dataLayer || [];#}
+{#    function gtag(){dataLayer.push(arguments);}#}
+{#    gtag('js', new Date());#}
+{#    gtag('config', 'GA_MEASUREMENT_ID');#}
+{#</script>#}
+
+{#</body>#}
+{#</html>#}
